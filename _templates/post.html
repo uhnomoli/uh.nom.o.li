@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+
+{% set title = item.title ~ ' : words' %}
+
+{% block content %}
+    <div class="words">
+        <h1 class="words-title">{{ item.title }}</h1>
+        <ul class="words-meta">
+            <li>{{ item.date }}</li>
+            {% if item.tags %}
+                <li class="words-meta-tags">
+                    {%- for tag in item.tags %}<a href="{{ get_url(posts.tags[tag].url) }}">{{ tag }}</a>{% if not loop.last %} , {% endif %}{% endfor -%}
+                </li>
+            {% endif %}
+        </ul>
+        
+        {{ item.content }}
+    </div>
+{% endblock %}

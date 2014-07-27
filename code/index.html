@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+
+{% set title = 'code' %}
+
+{% block content %}
+    {% for projects in containers.projects|batch(3) %}
+        <div class="projects">
+            {% for project in projects %}
+                {% if project.external %}
+                    <div class="project{% if loop.length < 3 and loop.last %} project-expand{% endif %} external">
+                        <h1 class="project-title"><a href="https://github.com/{{ project.external }}">{{ project.name }}</a></h1>
+                        <p class="project-excerpt">{{ project.description }}</p>
+                    </div>
+                {% else %}
+                    <div class="project{% if loop.length < 3 and loop.last %} project-expand{% endif %}">
+                        <h1 class="project-title"><a href="{{ get_url(project.url) }}">{{ project.name }}</a></h1>
+                        <p class="project-excerpt">{{ project.description }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}

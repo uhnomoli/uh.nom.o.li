@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+
+{% set title = item.title ~ ' : words' %}
+
+{% block content %}
+    <div class="words">
+        <h1 class="words-title"><a href="{{ item.external.link }}">{{ item.title }}</a></h1>
+        <ul class="words-meta">
+            <li>{{ item.date }}</li>
+            <li>via <a href="{{ item.external.source }}">{{ item.external.author }}</a></li>
+        </ul>
+        
+        <div class="words-summary">
+            {{ item.content }}
+        </div>
+    </div>
+{% endblock %}

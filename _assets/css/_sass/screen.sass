@@ -1,0 +1,778 @@
+@import base
+
+
+//
+// RESET
+//
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+    vertical-align: baseline
+    
+    margin: 0px
+    padding: 0px
+    
+    border-width: 0px
+    
+    font: inherit
+    font-size: 100%
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section
+    display: block
+
+blockquote, q
+    quotes: none
+
+blockquote:before, blockquote:after,
+q:before, q:after
+    content: ''
+    content: none
+
+ol, ul
+    list-style: none
+
+table
+    border-collapse: collapse
+
+
+//
+// BASE
+//
+body
+    background-color: $bg-d
+    
+    color: $fg
+    font:
+        family: 'Noto Serif', serif
+        size: 13px
+    line-height: $baseline
+
+blockquote, dl, ol, p, pre, table, ul
+    margin: $baseline 0px
+
+blockquote
+    +compact-children
+    
+    overflow: hidden
+    
+    padding: $baseline
+    
+    background-color: $bg-l
+    border: 1px solid $brdr
+    
+    color: $fg
+    font-style: italic
+
+h1, h2, h3, h4, h5, h6
+    font-family: 'Rambla', sans-serif
+
+h1, h2, h3
+    margin: $baseline 0px
+    margin-top: $baseline * 1.5
+    
+    line-height: $baseline * 1.5
+
+h1
+    font-size: 24px
+
+h2
+    font-size: 22px
+
+h3
+    font-size: 18px
+
+h4
+    font-size: 16px
+
+h5
+    font-size: 14px
+
+h6
+    font-size: 12px
+
+li
+    position: relative
+    left: $baseline * 2.5
+    
+    margin-right: $baseline * 2.5
+    
+    ol > &:before, ul > &:before
+        position: absolute
+        
+        color: $hlt
+        font-family: 'Rambla', sans-serif
+    
+    ol > &
+        counter-increment: item
+        
+        &:before
+            left: $baseline * -1.5
+            
+            width: $baseline
+            
+            text-align: right
+            
+            content: counter(item, decimal) '.'
+    
+    ul > &
+        &:before
+            left: -16px
+            
+            content: '\2013'
+    
+    ul.unstyled > &
+        position: static
+        left: auto
+        
+        margin-right: $baseline * 2.5
+        
+        &:before
+            position: static
+            left: auto
+            
+            content: none
+
+ol, ul
+    list-style:
+        image: none
+        position: inside
+        type: none
+    
+    ol, ul
+        margin: 0px
+        margin-left: $baseline
+
+ol
+    counter-reset: item
+
+pre
+    font-family: 'Envy Code R', 'Ubuntu Mono', monospace
+
+td, th
+    padding: $baseline / 2
+    padding-bottom: 8px
+    
+    border: 1px solid $brdr
+
+td
+    +compact-children
+    
+    tr:last-child > &
+        padding-top: 8px
+
+tbody
+    background-color: $bg-l
+
+thead
+    background-color: $bg-d
+    
+    font:
+        family: 'Rambla', sans-serif
+        weight: bold
+
+a
+    +transition(color 0.5s)
+    
+    border-bottom: 1px solid $brdr
+    
+    color: $hlt
+    text-decoration: none
+    
+    &:hover
+        color: $fg
+
+code
+    padding: 0px 3px
+    
+    background-color: $bg-l
+    border: 1px solid $brdr
+    
+    font-family: 'Envy Code R', 'Ubuntu Mono', monospace
+    line-height: 17px
+    white-space: pre
+    
+    pre &
+        padding: 0px
+        
+        background-color: transparent
+        border-width: 0px
+        
+        line-height: $baseline
+    
+    table &
+        background-color: $bg-d
+
+em
+    font-style: italic
+
+img
+    vertical-align: bottom
+    
+    a > &
+        +transition(background-color 0.5s)
+        
+        margin-bottom: -1px
+        padding: 5px
+        
+        background-color: $bg-l
+        border: 1px solid $brdr
+    
+    a:hover > &
+        background-color: $bg-d
+
+strong
+    font-weight: bold
+
+sub, sup
+    font-size: 11px
+    line-height: 0px
+
+sub
+    vertical-align: sub
+
+sup
+    vertical-align: super
+
+
+//
+// LAYOUT
+//
+#header
+    overflow: hidden
+    
+    padding: 0px $center
+    
+    height: 80px
+
+#title
+    margin:
+        top: $baseline
+        bottom: 0px
+    
+    line-height: $baseline * 1.5
+
+#subtitle
+    margin:
+        top: 0px
+        bottom: 17px
+    
+    line-height: $baseline
+
+#nav
+    position: absolute
+    top: 0px
+    right: 50%
+    
+    margin: 0px
+    margin-right: $container / -2
+    
+    & > a
+        display: block
+        
+        float: left
+        
+        padding: $baseline
+        padding-bottom: 17px
+        
+        line-height: $baseline * 1.5
+
+.nav-title
+    display: block
+    
+    line-height: $baseline
+
+.words
+    +compact-children
+    
+    position: relative
+    
+    padding: ($baseline * 1.5) $center
+    padding-bottom: 26px
+
+.words-meta
+    position: absolute
+    top: $baseline * 1.5
+    left: 50%
+    
+    margin: 0px
+    margin-left: ($container / -2) - 227
+    
+    width: 200px
+
+.words-permalink
+    line-height: $baseline * 1.5
+
+.words-excerpt
+    +compact-children
+
+.projects
+    +display-flex
+
+.project
+    +compact-children
+    +flex(1)
+    
+    padding: $baseline * 1.5
+    padding-bottom: 26px
+    
+    max-width: ($container - 112) / 3
+    min-width: ($container - 112) / 3
+    width: ($container - 112) / 3
+    
+    &:first-child
+        padding-left: $center
+    
+    &:last-child
+        padding-right: $center
+    
+    &:not(:first-child):not(:last-child)
+        +flex(0)
+
+.project-expand
+    max-width: none
+
+.scrots
+    margin: $baseline 0px
+
+.scrots-scrot
+    display: inline-block
+    
+    & > figcaption
+        display: block
+        
+        line-height: 11px
+
+div.code
+    margin: $baseline 0px
+    
+    & > div
+        overflow: auto
+        
+        max-height: $baseline * 27
+
+.highlighttable
+    margin: 0px
+
+.linenodiv, .highlight
+    & > pre
+        margin: 0px
+
+#footer
+    position: relative
+    
+    padding: 0px $center
+    
+    & > p
+        margin: ($baseline * 1.5) 0px
+
+#footer-label
+    position: absolute
+    top: $baseline * 1.5
+    left: 50%
+    
+    margin: 0px
+    margin-left: ($container / -2) - 102
+    
+    width: 75px
+
+
+//
+// STYLE
+//
+#header
+    background-color: $bg
+    border-bottom: 1px solid $brdr
+
+#title
+    +label
+
+#subtitle
+    color: $fg-l
+    font:
+        family: 'Noto Serif', serif
+        size: 13px
+        style: italic
+
+#nav
+    +label-md
+    
+    text-align: center
+    
+    & > a
+        +hover-background(color 0.5s)
+        
+        border-left: 1px solid $brdr
+        
+        &:last-child
+            border-right: 1px solid $brdr
+
+.nav-title
+    color: $fg-l
+    font:
+        family: 'Noto Serif', serif
+        size: 13px
+        style: italic
+        weight: normal
+
+.words
+    background-color: $bg
+    border-bottom: 1px solid $brdr
+    
+    &:last-child
+        border-bottom-width: 0px
+
+.words-title
+    .words-list > &
+        +inverted-links
+
+.words-meta
+    @extend ul.unstyled
+    
+    color: $fg-l
+    font:
+        family: 'Rambla', sans-serif
+    text-align: right
+
+.words-meta-tags
+    font-size: 11px
+    text-transform: uppercase
+
+.words-permalink
+    +inverted-links(lighten($fg-l, 15%))
+    +opacity(0)
+    +transition(opacity 0.5s)
+    
+    font-size: 24px
+    
+    .words:hover &
+        +opacity(1)
+
+.words-excerpt
+    font-style: italic
+
+.projects
+    background-color: $bg
+    border-bottom: 1px solid $brdr
+    
+    &:last-child
+        border-bottom-width: 0px
+
+.project
+    +hover-background
+    
+    border-right: 1px solid $brdr
+    
+    &:last-child
+        border-right-width: 0px
+
+.project-title
+    +inverted-links
+
+.external
+    background-color: $ext
+
+.scrots-scrot
+    +transition(background-color 0.5s)
+    
+    padding: 5px
+    
+    border: 1px solid $brdr
+    
+    &:hover
+        background-color: $bg-d
+    
+    & > figcaption
+        padding-top: 4px
+        
+        color: $fg-l
+        font:
+            size: 11px
+            style: italic
+    
+    img
+        +transition(all 0s ease 0s)
+        
+        padding: 0px
+        
+        border-width: 0px
+
+div.code
+    & > div
+        background-color: $bg-l
+        border: 1px solid $brdr
+
+.linenos, td.code
+    border-width: 0px
+
+.linenos
+    background-color: $bg-d
+    border-right: 1px solid $brdr
+    
+    color: $fg-l
+
+td.code
+    background-color: transparent
+
+#footer
+    border-top: 1px solid $brdr
+    
+    font-style: italic
+
+#footer-label
+    +label($linked: false)
+    
+    text-align: right
+
+
+//
+// LITEBOX
+//
+#litebox
+    display: none
+    
+    position: fixed
+    top: 0px
+    right: 0px
+    bottom: 0px
+    left: 0px
+    z-index: 2147483647
+    
+    background-color: rgba(225, 225, 225, 0.8)
+    cursor: pointer
+    
+    & > img
+        display: block
+        
+        padding: 5px
+        
+        background-color: $bg-l
+        border: 1px solid $brdr
+        cursor: auto
+
+
+//
+// PYGMENTS
+//
+.highlight
+    color: $fg
+
+.highlight .bp
+    color: #999999
+
+.highlight .c
+    color: #999988
+    font-style: italic
+
+.highlight .c1
+    color: #999988
+    font-style: italic
+
+.highlight .cm
+    color: #999988
+    font-style: italic
+
+.highlight .cp
+    color: #999999
+    font-weight: bold
+
+.highlight .cs
+    color: #999999
+    font:
+        weight: bold
+        style: italic
+
+.highlight .err
+    background-color: #E3D2D2
+    
+    color: #A61717
+
+.highlight .gc
+    background-color: #EAF2F5
+    
+    color: #999
+
+.highlight .gd .x
+    background-color: #FFAAAA
+    
+    color: #000000
+
+.highlight .gd
+    background-color: #FFDDDD
+    
+    color: #000000
+
+.highlight .ge
+    font-style: italic
+
+.highlight .gh
+    color: #999999
+
+.highlight .gi .x
+    background-color: #AAFFAA
+    
+    color: #000000
+
+.highlight .gi
+    background-color: #DDFFDD
+    
+    color: #000000
+
+.highlight .go
+    color: #888888
+
+.highlight .gp
+    color: #555555
+
+.highlight .gr
+    color: #AA0000
+
+.highlight .gs
+    font-weight: bold
+
+.highlight .gt
+    color: #AA0000
+
+.highlight .gu
+    color: #800080
+    font-weight: bold
+
+.highlight .il
+    color: #009999
+
+.highlight .k
+    font-weight: bold
+
+.highlight .kc
+    font-weight: bold
+
+.highlight .kd
+    font-weight: bold
+
+.highlight .kn
+    font-weight: bold
+
+.highlight .kp
+    font-weight: bold
+
+.highlight .kr
+    font-weight: bold
+
+.highlight .kt
+    color: #445588
+    font-weight: bold
+
+.highlight .m
+    color: #009999
+
+.highlight .mf
+    color: #009999
+
+.highlight .mh
+    color: #009999
+
+.highlight .mi
+    color: #009999
+
+.highlight .mo
+    color: #009999
+
+.highlight .n
+    color: #333333
+
+.highlight .na
+    color: teal
+
+.highlight .nb
+    color: #0086B3
+
+.highlight .nc
+    color: #445588
+    font-weight: bold
+
+.highlight .ne
+    color: #990000
+    font-weight: bold
+
+.highlight .nf
+    color: #990000
+    font-weight: bold
+
+.highlight .ni
+    color: purple
+
+.highlight .nn
+    color: #555555
+
+.highlight .no
+    color: teal
+
+.highlight .nt
+    color: navy
+
+.highlight .nv
+    color: teal
+
+.highlight .o
+    font-weight: bold
+
+.highlight .ow
+    font-weight: bold
+
+.highlight .s
+    color: #DD1144
+
+.highlight .s1
+    color: #DD1144
+
+.highlight .s2
+    color: #DD1144
+
+.highlight .sb
+    color: #DD1144
+
+.highlight .sc
+    color: #DD1144
+
+.highlight .sd
+    color: #DD1144
+
+.highlight .se
+    color: #DD1144
+
+.highlight .sh
+    color: #DD1144
+
+.highlight .si
+    color: #DD1144
+
+.highlight .sr
+    color: #009926
+
+.highlight .ss
+    color: #990073
+
+.highlight .sx
+    color: #DD1144
+
+.highlight .vc
+    color: teal
+
+.highlight .vg
+    color: teal
+
+.highlight .vi
+    color: teal
+
+.highlight .w
+    color: #BBBBBB

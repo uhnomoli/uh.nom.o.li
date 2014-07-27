@@ -1,0 +1,91 @@
+//
+// IMPORTS
+//
+@import compass/css3/shared
+@import flexbox
+
+
+//
+// VARIABLES
+//
+
+// COLORS
+$bg-d: #F2F2F2
+$bg: #FAFAFA
+$bg-l: #FDFDFD
+$fg: #454545
+$fg-l: #A6A6A6
+$brdr: #DBDBDB
+$hlt: #BE5858
+$hlt: #2387B6
+$ext: #F5F5F5
+
+// DIMENSIONS
+$baseline: 18px
+$container: 960px - 236px
+$center: calc((100% - #{$container}) / 2)
+
+
+//
+// MIXINS
+//
+@mixin compact-children
+    & > :first-child
+        margin-top: 0px
+    
+    & > :last-child
+        margin-bottom: 0px
+
+@mixin hover-background($transition: false)
+    +transition(background-color 0.5s, $transition)
+    
+    &:hover
+        background-color: $bg-d
+
+@mixin inverted-links($color: $fg)
+    & > a
+        border-bottom-width: 0px
+        
+        color: $color
+        
+        &:hover
+            color: $hlt
+
+@mixin _label-base($linked: true)
+    font:
+        family: 'Rambla', sans-serif
+        style: normal
+        weight: 700
+    
+    @if $linked
+        +inverted-links
+
+@mixin label($linked: true)
+    +_label-base($linked)
+
+@mixin label-md($linked: true)
+    font-size: 18px
+    
+    +_label-base($linked)
+
+// VENDOR PREFIXES
+@mixin border-radius($radius, $corner: false)
+    @if $corner
+        @include experimental(border-#{$corner}-radius, $radius, not -moz, -webkit, not -o, not -ms, not -khtml, official)
+    @else
+        @include experimental(border-radius, $radius, not -moz, -webkit, not -o, not -ms, not -khtml, official)
+
+@mixin box-shadow($one, $two: false, $three: false, $four: false, $five: false)
+    $shadows: compact($one, $two, $three, $four, $five)
+    
+    @include experimental(box-shadow, $shadows, not -moz, -webkit, not -o, not -ms, not -khtml, official)
+
+@mixin opacity($opacity)
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity} * 100)'
+    filter: alpha(opacity=#{$opacity} * 100)
+    opacity: $opacity
+
+@mixin transition($one, $two: false, $three: false, $four: false, $five: false)
+    $transitions: compact($one, $two, $three, $four, $five)
+    
+    @include experimental(transition, $transitions, -moz, -webkit, -o, -ms, not -khtml, official)

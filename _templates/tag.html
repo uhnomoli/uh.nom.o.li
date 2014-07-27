@@ -1,0 +1,22 @@
+{% extends '/index.html' %}
+
+
+{% set title = tag.name ~ ' : words' %}
+
+{% block content %}
+    {% for post in tag.container %}
+        <div class="words words-list">
+            <h1 class="words-title"><a href="{{ get_url(post.url) }}">{{ post.title }}</a></h1>
+            <ul class="words-meta">
+                <li>{{ post.date }}</li>
+                {% if post.tags %}
+                    <li class="words-meta-tags">
+                        {%- for _tag in post.tags %}<a href="{{ get_url(posts.tags[_tag].url) }}">{{ _tag }}</a>{% if not loop.last %} , {% endif %}{% endfor -%}
+                    </li>
+                {% endif %}
+            </ul>
+            
+            <p class="words-excerpt">{{ post.excerpt }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

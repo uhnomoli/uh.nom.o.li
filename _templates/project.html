@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% set slug = item.name|lower|replace(' ', '-') %}
+
+
+{% set title = item.name ~ ' : code' %}
+
+{% block content %}
+    <div class="words">
+        <h1 class="words-title"><a href="{{ item.site }}">{{ item.name }}</a></h1>
+        
+        {{ item.content }}
+        
+        {% if item.scrots %}
+            {% for scrots in item.scrots|batch(item.batch|default(3)) %}
+                <div class="scrots">
+                    {% for scrot in scrots %}
+                        <figure class="scrots-scrot">
+                            <a href="{{ get_asset('images/code/%s/%s.png'|format(slug, scrot.filename)) }}"><img src="{{ get_asset('images/code/%s/%s-thumb.png'|format(slug, scrot.filename)) }}" width="{{ scrot.width }}" height="{{ scrot.height }}" alt="{{ scrot.title }}"></a>
+                            <figcaption>{{ scrot.title }}</figcaption>
+                        </figure>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
