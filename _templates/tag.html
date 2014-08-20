@@ -4,7 +4,7 @@
 {% set title = tag.name ~ ' : words' %}
 
 {% block content %}
-    {% for post in tag.container %}
+    {% for post in tag %}
         <div class="words words-list">
             <h1 class="words-title"><a href="{{ get_url(post.url) }}">{{ post.title }}</a></h1>
             <ul class="words-meta">
