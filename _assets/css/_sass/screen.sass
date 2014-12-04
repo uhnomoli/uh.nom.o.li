@@ -182,12 +182,12 @@ thead
         weight: bold
 
 a
-    +transition(color 0.5s)
-    
     border-bottom: 1px solid $brdr
     
     color: $hlt
     text-decoration: none
+    
+    transition: color 0.5s
     
     &:hover
         color: $fg
@@ -220,13 +220,13 @@ img
     vertical-align: bottom
     
     a > &
-        +transition(background-color 0.5s)
-        
         margin-bottom: -1px
         padding: 5px
         
         background-color: $bg-l
         border: 1px solid $brdr
+        
+        transition: background-color 0.5s
     
     a:hover > &
         background-color: $bg-d
@@ -450,13 +450,14 @@ div.code
 
 .words-permalink
     +inverted-links(lighten($fg-l, 15%))
-    +opacity(0)
-    +transition(opacity 0.5s)
     
     font-size: 24px
     
+    opacity: 0
+    transition: opacity 0.5s
+    
     .words:hover &
-        +opacity(1)
+        opacity: 1
 
 .words-excerpt
     font-style: italic
@@ -483,11 +484,11 @@ div.code
     background-color: $ext
 
 .scrots-scrot
-    +transition(background-color 0.5s)
-    
     padding: 5px
     
     border: 1px solid $brdr
+    
+    transition: background-color 0.5s
     
     &:hover
         background-color: $bg-d
@@ -501,11 +502,11 @@ div.code
             style: italic
     
     img
-        +transition(all 0s ease 0s)
-        
         padding: 0px
         
         border-width: 0px
+        
+        transition: all 0s ease 0s
 
 div.code
     & > div
