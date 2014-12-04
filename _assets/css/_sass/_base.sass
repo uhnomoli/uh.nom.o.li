@@ -37,7 +37,10 @@ $center: calc((100% - #{$container}) / 2)
         margin-bottom: 0px
 
 @mixin hover-background($transition: false)
-    transition: background-color 0.5s, $transition
+    @if $transition
+        transition: background-color 0.5s, $transition
+    @else
+        transition: background-color 0.5s
     
     &:hover
         background-color: $bg-d
