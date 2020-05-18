@@ -32,7 +32,7 @@ $center: calc((100% - #{$container}) / 2)
 @mixin compact-children
     & > :first-child
         margin-top: 0px
-    
+
     & > :last-child
         margin-bottom: 0px
 
@@ -41,16 +41,16 @@ $center: calc((100% - #{$container}) / 2)
         transition: background-color 0.5s, $transition
     @else
         transition: background-color 0.5s
-    
+
     &:hover
         background-color: $bg-d
 
 @mixin inverted-links($color: $fg)
     & > a
         border-bottom-width: 0px
-        
+
         color: $color
-        
+
         &:hover
             color: $hlt
 
@@ -59,7 +59,7 @@ $center: calc((100% - #{$container}) / 2)
         family: 'Rambla', sans-serif
         style: normal
         weight: 700
-    
+
     @if $linked
         +inverted-links
 
@@ -68,5 +68,6 @@ $center: calc((100% - #{$container}) / 2)
 
 @mixin label-md($linked: true)
     font-size: 18px
-    
+
     +_label-base($linked)
+

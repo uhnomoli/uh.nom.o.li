@@ -65,4 +65,5 @@ The core parts of accomplishing this were user requested _(not created)_ categor
 DotShare was coded over the period of 3 months, over which I learned Python and coded it from the ground up on the [Flask][flask] microframework. I also handled deployment once the codebase was ready to be launched.
 
 
-[flask]: http://flask.pocoo.org/
+[flask]: https://flask.palletsprojects.com/
+

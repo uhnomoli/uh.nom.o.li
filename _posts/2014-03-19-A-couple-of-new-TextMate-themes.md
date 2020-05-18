@@ -11,7 +11,7 @@ About every six months or so I get bored with my setup and go poking around in a
         <a href="{{ get_asset('images/words/mint.png') }}"><img src="{{ get_asset('images/words/mint-thumb.png') }}" width="348" height="185" alt="Mint"></a>
         <figcaption>Mint</figcaption>
     </figure>
-    
+
     <figure class="scrots-scrot">
         <a href="{{ get_asset('images/words/ash.png') }}"><img src="{{ get_asset('images/words/ash-thumb.png') }}" width="348" height="185" alt="Ash"></a>
         <figcaption>Ash</figcaption>
@@ -26,3 +26,4 @@ Both are available on [GitHub][themes-repo] along with my two other themes: Ereb
 
 
 [themes-repo]: https://github.com/Anomareh/TextMate-Themes
+

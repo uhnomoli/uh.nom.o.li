@@ -2,7 +2,7 @@
 layout: project.html
 name: Palette
 description: 'A color palette web app that gives you room.'
-site: http://palette.uhnomoli.com/
+site: https://palette.uhnomoli.com/
 scrots:
     -
         filename: dark
@@ -38,3 +38,4 @@ Palette is [open source][source].
 
 
 [source]: https://github.com/Anomareh/Palette
+

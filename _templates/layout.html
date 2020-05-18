@@ -3,7 +3,7 @@
 <html>
 <head>
     {% include 'page.header.html' %}
-    
+
     <title>{% if title %}{{ title }} – {% endif %}{{ site.title }}{% if not title %} – {{ site.subtitle }}{% endif %}</title>
 </head>
 
@@ -11,20 +11,21 @@
     <div id="header">
         <h1 id="title"><a href="{{ get_url() }}">{{ site.title }}</a></h1>
         <h2 id="subtitle">{{ site.subtitle }}</h2>
-        
+
         <div id="nav">
             <a href="{{ get_url() }}">words<span class="nav-title">my ramblings</span></a>
             <a href="{{ get_url('code/') }}">code<span class="nav-title">what I'm working on</span></a>
         </div>
     </div>
-    
+
     <div id="content">
         {% block content %}{% endblock %}
     </div>
-    
+
     <div id="footer">
         <h1 id="footer-label">about</h1>
-        <p>My name is Andrew Fricke, for the most part I'm a web developer, and this is where I ramble. This site is powered by a static site generator I wrote called <a href="http://mynt.uhnomoli.com/">mynt</a> and there's also a <a href="{{ get_url('feed.xml') }}">feed</a>. If you want to get in touch, you can find me on <a href="https://github.com/Anomareh">GitHub</a>, <a href="https://twitter.com/anomareh">Twitter</a>, and I also hang out on IRC—Anomareh@freenode.</p>
+        <p>My name is Andrew Fricke, for the most part I'm a web developer, and this is where I ramble. This site is powered by a static site generator I wrote called <a href="https://mynt.uhnomoli.com/">mynt</a> and there's also a <a href="{{ get_url('feed.xml') }}">feed</a>. If you want to get in touch, you can find me on <a href="https://github.com/Anomareh">GitHub</a>, <a href="https://twitter.com/anomareh">Twitter</a>, and I also hang out on IRC—Anomareh@freenode.</p>
     </div>
 </body>
 </html>
+

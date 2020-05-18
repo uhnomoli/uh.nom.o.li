@@ -17,7 +17,7 @@ First we start off with your usual boilerplate.
 ```javascript
 (function ($) {
     var $document = $(document);
-    
+
     // our code ...
 })(jQuery);
 ```
@@ -53,13 +53,13 @@ function parse_response(html) {
     var
         head = /<head[^>]*>([\s\S]+)<\/head>/.exec(html),
         body = /<body[^>]*>([\s\S]+)<\/body>/.exec(html),
-        
+
         $head = head ? parse_html(head[1]) : $(),
         $body = body ? parse_html(body[1]) : $(),
-        
+
         title = $.trim(find_all($head, 'title').last().html()),
         $content = $.trim(find_all($body, '#content').first().contents());
-    
+
     return {
         'title': title,
         '$content': $content
@@ -81,10 +81,10 @@ $document.ready(function () {
         if (event.which == 2 || event.ctrlKey || event.metaKey) {
             return true;
         }
-        
+
         History.pushState(null, null, $(this).attr('href'));
         event.preventDefault();
-        
+
         return false;
     });
 });
@@ -102,27 +102,27 @@ $(window).on('statechange', function () {
     var
         url = History.getState().url,
         rel = url.replace(root, '/');
-    
+
     // Here we're making our AJAX call.
     $.get(rel).done(function (date) {
         var response = parse_response(date);
-        
+
         // First we need to check if the chunk we were looking for was found
         // in the response. If it wasn't we reject the link.
         if (!response.$content.length) {
             document.location.href = url;
-            
+
             return false;
         }
-        
+
         // This is our target container.
         var $content = $('#content');
-        
+
         // Here we're updating the page title if one was found in the response.
         if (response.title.length) {
             $('title').last().html(response.title);
         }
-        
+
         // Now we're loading the response.
         $content
             .slideUp(500)
@@ -135,7 +135,7 @@ $(window).on('statechange', function () {
     // If the AJAX request failed, we're again rejecting the link.
     }).fail(function () {
         document.location.href = url;
-        
+
         return false;
     });
 });
@@ -148,75 +148,75 @@ The only thing left is to put it all together.
 ```javascript
 (function ($) {
     var $document = $(document);
-    
+
     if (!History.enabled) {
         return false;
     }
-    
+
     var root = History.getRootUrl();
-    
+
     $.expr.filters.internal = function (elem) {
         return (elem.hostname == window.location.hostname && /(\/|\.html)$/i.test(elem.pathname)) || false;
     };
-    
+
     function find_all($html, selector) {
         return $html.filter(selector).add($html.find(selector));
     }
-    
+
     function parse_html(html) {
         return $($.parseHTML(html, document, true));
     }
-    
+
     function parse_response(html) {
         var
             head = /<head[^>]*>([\s\S]+)<\/head>/.exec(html),
             body = /<body[^>]*>([\s\S]+)<\/body>/.exec(html),
-            
+
             $head = head ? parse_html(head[1]) : $(),
             $body = body ? parse_html(body[1]) : $(),
-            
+
             title = $.trim(find_all($head, 'title').last().html()),
             $content = $.trim(find_all($body, '#content').first().html());
-        
+
         return {
             'title': title,
             '$content': $content
         }
     }
-    
+
     $document.ready(function () {
         $document.on('click', 'a:internal', function (event) {
             if (event.which == 2 || event.ctrlKey || event.metaKey) {
                 return true;
             }
-            
+
             History.pushState(null, null, $(this).attr('href'));
             event.preventDefault();
-            
+
             return false;
         });
     });
-    
+
     $(window).on('statechange', function () {
         var
             url = History.getState().url,
             rel = url.replace(root, '/');
-        
+
         $.get(rel).done(function (date) {
             var response = parse_response(date);
-            
+
             if (!response.$content.length) {
                 document.location.href = url;
-                
+
                 return false;
             }
-            
+
             var $content = $('#content');
-            
+
             if (response.title.length) {
                 $('title').last().html(response.title);
             }
-            
+
             $content
                 .slideUp(500)
                 .promise()
@@ -227,7 +227,7 @@ The only thing left is to put it all together.
                 });
         }).fail(function () {
             document.location.href = url;
-            
+
             return false;
         });
     });
@@ -238,4 +238,5 @@ And there we have it. A simple, straightforward PJAX implementation that doesn't
 
 
 [history.js]: https://github.com/browserstate/history.js/
-[pjax]: http://pjax.heroku.com/
+[pjax]: https://pjax.herokuapp.com/
+

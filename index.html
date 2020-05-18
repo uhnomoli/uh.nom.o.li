@@ -9,7 +9,7 @@
                 <ul class="words-meta">
                     <li class="words-permalink"><a href="{{ get_url(post.url) }}">#</a></li>
                 </ul>
-                
+
                 <div class="words-excerpt">
                     {{ post.content }}
                 </div>
@@ -25,9 +25,10 @@
                         </li>
                     {% endif %}
                 </ul>
-                
+
                 <p class="words-excerpt">{{ post.excerpt }}</p>
             </div>
         {% endif %}
     {% endfor %}
 {% endblock %}
+

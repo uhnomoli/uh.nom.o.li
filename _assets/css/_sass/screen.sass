@@ -18,12 +18,12 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video
     vertical-align: baseline
-    
+
     margin: 0px
     padding: 0px
-    
+
     border-width: 0px
-    
+
     font: inherit
     font-size: 100%
 
@@ -51,7 +51,7 @@ table
 //
 body
     background-color: $bg-d
-    
+
     color: $fg
     font:
         family: 'Noto Serif', serif
@@ -63,14 +63,14 @@ blockquote, dl, ol, p, pre, table, ul
 
 blockquote
     +compact-children
-    
+
     overflow: hidden
-    
+
     padding: $baseline
-    
+
     background-color: $bg-l
     border: 1px solid $brdr
-    
+
     color: $fg
     font-style: italic
 
@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6
 h1, h2, h3
     margin: $baseline 0px
     margin-top: $baseline * 1.5
-    
+
     line-height: $baseline * 1.5
 
 h1
@@ -104,43 +104,43 @@ h6
 li
     position: relative
     left: $baseline * 2.5
-    
+
     margin-right: $baseline * 2.5
-    
+
     ol > &:before, ul > &:before
         position: absolute
-        
+
         color: $hlt
         font-family: 'Rambla', sans-serif
-    
+
     ol > &
         counter-increment: item
-        
+
         &:before
             left: $baseline * -1.5
-            
+
             width: $baseline
-            
+
             text-align: right
-            
+
             content: counter(item, decimal) '.'
-    
+
     ul > &
         &:before
             left: -16px
-            
+
             content: '\2013'
-    
+
     ul.unstyled > &
         position: static
         left: auto
-        
+
         margin-right: 0px
-        
+
         &:before
             position: static
             left: auto
-            
+
             content: none
 
 ol, ul
@@ -148,7 +148,7 @@ ol, ul
         image: none
         position: inside
         type: none
-    
+
     ol, ul
         margin: 0px
         margin-left: $baseline
@@ -162,12 +162,12 @@ pre
 td, th
     padding: $baseline / 2
     padding-bottom: 8px
-    
+
     border: 1px solid $brdr
 
 td
     +compact-children
-    
+
     tr:last-child > &
         padding-top: 8px
 
@@ -176,40 +176,40 @@ tbody
 
 thead
     background-color: $bg-d
-    
+
     font:
         family: 'Rambla', sans-serif
         weight: bold
 
 a
     border-bottom: 1px solid $brdr
-    
+
     color: $hlt
     text-decoration: none
-    
+
     transition: color 0.5s
-    
+
     &:hover
         color: $fg
 
 code
     padding: 0px 3px
-    
+
     background-color: $bg-l
     border: 1px solid $brdr
-    
+
     font-family: 'Envy Code R', 'Ubuntu Mono', monospace
     line-height: 17px
     white-space: pre
-    
+
     pre &
         padding: 0px
-        
+
         background-color: transparent
         border-width: 0px
-        
+
         line-height: $baseline
-    
+
     table &
         background-color: $bg-d
 
@@ -218,16 +218,16 @@ em
 
 img
     vertical-align: bottom
-    
+
     a > &
         margin-bottom: -1px
         padding: 5px
-        
+
         background-color: $bg-l
         border: 1px solid $brdr
-        
+
         transition: background-color 0.5s
-    
+
     a:hover > &
         background-color: $bg-d
 
@@ -250,53 +250,53 @@ sup
 //
 #header
     overflow: hidden
-    
+
     padding: 0px $center
-    
+
     height: 80px
 
 #title
     margin:
         top: $baseline
         bottom: 0px
-    
+
     line-height: $baseline * 1.5
 
 #subtitle
     margin:
         top: 0px
         bottom: 17px
-    
+
     line-height: $baseline
 
 #nav
     position: absolute
     top: 0px
     right: 50%
-    
+
     margin: 0px
     margin-right: $container / -2
-    
+
     & > a
         display: block
-        
+
         float: left
-        
+
         padding: $baseline
         padding-bottom: 17px
-        
+
         line-height: $baseline * 1.5
 
 .nav-title
     display: block
-    
+
     line-height: $baseline
 
 .words
     +compact-children
-    
+
     position: relative
-    
+
     padding: ($baseline * 1.5) $center
     padding-bottom: 26px
 
@@ -304,10 +304,10 @@ sup
     position: absolute
     top: $baseline * 1.5
     left: 50%
-    
+
     margin: 0px
     margin-left: ($container / -2) - 227
-    
+
     width: 200px
 
 .words-permalink
@@ -322,20 +322,20 @@ sup
 .project
     +compact-children
     +flex(1)
-    
+
     padding: $baseline * 1.5
     padding-bottom: 26px
-    
+
     max-width: ($container - 112) / 3
     min-width: ($container - 112) / 3
     width: ($container - 112) / 3
-    
+
     &:first-child
         padding-left: $center
-    
+
     &:last-child
         padding-right: $center
-    
+
     &:not(:first-child):not(:last-child)
         +flex(0)
 
@@ -347,18 +347,18 @@ sup
 
 .scrots-scrot
     display: inline-block
-    
+
     & > figcaption
         display: block
-        
+
         line-height: 11px
 
 div.code
     margin: $baseline 0px
-    
+
     & > div
         overflow: auto
-        
+
         max-height: $baseline * 27
 
 .highlighttable
@@ -370,9 +370,9 @@ div.code
 
 #footer
     position: relative
-    
+
     padding: 0px $center
-    
+
     & > p
         margin: ($baseline * 1.5) 0px
 
@@ -380,10 +380,10 @@ div.code
     position: absolute
     top: $baseline * 1.5
     left: 50%
-    
+
     margin: 0px
     margin-left: ($container / -2) - 102
-    
+
     width: 75px
 
 
@@ -406,14 +406,14 @@ div.code
 
 #nav
     +label-md
-    
+
     text-align: center
-    
+
     & > a
         +hover-background(color 0.5s)
-        
+
         border-left: 1px solid $brdr
-        
+
         &:last-child
             border-right: 1px solid $brdr
 
@@ -428,7 +428,7 @@ div.code
 .words
     background-color: $bg
     border-bottom: 1px solid $brdr
-    
+
     &:last-child
         border-bottom-width: 0px
 
@@ -438,7 +438,7 @@ div.code
 
 .words-meta
     @extend ul.unstyled
-    
+
     color: $fg-l
     font:
         family: 'Rambla', sans-serif
@@ -450,12 +450,12 @@ div.code
 
 .words-permalink
     +inverted-links(lighten($fg-l, 15%))
-    
+
     font-size: 24px
-    
+
     opacity: 0
     transition: opacity 0.5s
-    
+
     .words:hover &
         opacity: 1
 
@@ -465,15 +465,15 @@ div.code
 .projects
     background-color: $bg
     border-bottom: 1px solid $brdr
-    
+
     &:last-child
         border-bottom-width: 0px
 
 .project
     +hover-background
-    
+
     border-right: 1px solid $brdr
-    
+
     &:last-child
         border-right-width: 0px
 
@@ -485,27 +485,27 @@ div.code
 
 .scrots-scrot
     padding: 5px
-    
+
     border: 1px solid $brdr
-    
+
     transition: background-color 0.5s
-    
+
     &:hover
         background-color: $bg-d
-    
+
     & > figcaption
         padding-top: 4px
-        
+
         color: $fg-l
         font:
             size: 11px
             style: italic
-    
+
     img
         padding: 0px
-        
+
         border-width: 0px
-        
+
         transition: all 0s ease 0s
 
 div.code
@@ -519,7 +519,7 @@ div.code
 .linenos
     background-color: $bg-d
     border-right: 1px solid $brdr
-    
+
     color: $fg-l
 
 td.code
@@ -527,12 +527,12 @@ td.code
 
 #footer
     border-top: 1px solid $brdr
-    
+
     font-style: italic
 
 #footer-label
     +label($linked: false)
-    
+
     text-align: right
 
 
@@ -541,22 +541,22 @@ td.code
 //
 #litebox
     display: none
-    
+
     position: fixed
     top: 0px
     right: 0px
     bottom: 0px
     left: 0px
     z-index: 2147483647
-    
+
     background-color: rgba(225, 225, 225, 0.8)
     cursor: pointer
-    
+
     & > img
         display: block
-        
+
         padding: 5px
-        
+
         background-color: $bg-l
         border: 1px solid $brdr
         cursor: auto
@@ -595,22 +595,22 @@ td.code
 
 .highlight .err
     background-color: #E3D2D2
-    
+
     color: #A61717
 
 .highlight .gc
     background-color: #EAF2F5
-    
+
     color: #999
 
 .highlight .gd .x
     background-color: #FFAAAA
-    
+
     color: #000000
 
 .highlight .gd
     background-color: #FFDDDD
-    
+
     color: #000000
 
 .highlight .ge
@@ -621,12 +621,12 @@ td.code
 
 .highlight .gi .x
     background-color: #AAFFAA
-    
+
     color: #000000
 
 .highlight .gi
     background-color: #DDFFDD
-    
+
     color: #000000
 
 .highlight .go
@@ -777,3 +777,4 @@ td.code
 
 .highlight .w
     color: #BBBBBB
+

@@ -2,7 +2,7 @@
 layout: project.html
 name: mynt
 description: 'A static site generator with a focus on blogs.'
-site: http://mynt.uhnomoli.com/
+site: https://mynt.uhnomoli.com/
 ---
 
 _Another static site generator?_
@@ -20,5 +20,6 @@ Some of the design goals were:
 Written in Python, mynt is [open source][source], BSD licensed, and [documented][docs].
 
 
-[docs]: http://mynt.uhnomoli.com/
+[docs]: https://mynt.uhnomoli.com/
 [source]: https://github.com/Anomareh/mynt
+

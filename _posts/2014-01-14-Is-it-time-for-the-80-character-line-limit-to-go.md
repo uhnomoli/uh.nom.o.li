@@ -31,4 +31,5 @@ At this point I really don't feel the character line limit serves a purpose. To 
 Lastly, please stop using this convention when writing emails. On a desktop they'll take up a quarter of the screen and they're an absolute mess on phones. My eyes and sanity thanks you.
 
 
-[history]: http://programmers.stackexchange.com/questions/148677/why-is-80-characters-the-standard-limit-for-code-width
+[history]: https://programmers.stackexchange.com/questions/148677/why-is-80-characters-the-standard-limit-for-code-width
+
