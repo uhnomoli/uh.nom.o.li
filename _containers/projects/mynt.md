@@ -21,5 +21,5 @@ Written in Python, mynt is [open source][source], BSD licensed, and [documented]
 
 
 [docs]: https://mynt.uhnomoli.com/
-[source]: https://github.com/Anomareh/mynt
+[source]: https://github.com/uhnomoli/mynt
 

@@ -37,5 +37,5 @@ Palette accomplishes this in several ways.
 Palette is [open source][source].
 
 
-[source]: https://github.com/Anomareh/Palette
+[source]: https://github.com/uhnomoli/Palette
 

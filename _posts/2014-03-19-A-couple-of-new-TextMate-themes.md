@@ -25,5 +25,5 @@ Ash was more or less a happy accident. I just started messing around and ended u
 Both are available on [GitHub][themes-repo] along with my two other themes: Erebus and Monokai Dark.
 
 
-[themes-repo]: https://github.com/Anomareh/TextMate-Themes
+[themes-repo]: https://github.com/uhnomoli/TextMate-Themes
 
